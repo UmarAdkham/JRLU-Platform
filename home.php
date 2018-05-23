@@ -86,8 +86,8 @@ $length = 0;
 						?>
 						<!-- End of loop -->
 					</div>
-				<!-- End of Checkboxes for the frequently used data fields -->
 
+				<!-- End of Checkboxes for the frequently used data fields -->
 					<div class="col-xs-12 col-sm-12">
 						
 						<!-- Container to dynamically increase and hold all fields --> 
@@ -101,10 +101,6 @@ $length = 0;
 						<!-- End of Button for adding fields -->
 
 					</div>
-
-					<!-- Container to dynamically increase and hold all fields --> 
-					<div class="col-xs-12" id="fields-container"> </div>
-					<!--End of Container to dynamically increase and hold all fields -->
 
 					<!-- Submit and Reset buttons for entire form -->
 					<div class="col-xs-12" style="margin-bottom: 40px;">

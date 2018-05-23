@@ -36,7 +36,6 @@ if ($conn->query($sql) === TRUE)
 		$conn -> query(${"sqlBridge$i"});
 	}
 
-
 //Inserting values into data_type table from POSTed array
 	$numOfFields = count($fieldName);
 	for ($i=0; $i < $numOfFields; $i++) { 
@@ -55,6 +54,7 @@ if ($conn->query($sql) === TRUE)
 
 	$message = "New Service created successfully";
 	echo "<script type='text/javascript'>alert('$message');
+	window.location.href = 'home.php';
 	</script>";
 	
 //	window.location.href = 'home.php';
