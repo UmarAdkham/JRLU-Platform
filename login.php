@@ -22,7 +22,7 @@ $password = $_POST['login-password'];
          $_SESSION['branchID'] = $row['branchID'];
          $_SESSION['type'] = $row['type'];
          if ($_SESSION['type'] === 'Superadmin') {
-           header("location: home.php");
+           header("location: superAdmin.php");
          }
          elseif ($_SESSION['type'] === 'Admin') {
            header("location: addStaffPage.php");
@@ -31,12 +31,12 @@ $password = $_POST['login-password'];
            header("location: teller_home.php");
          }
 
-         
-         
+
+
          }
        else{
          $message = "Wrong username or password";
-         echo "<script type='text/javascript'>alert('$message'); 
+         echo "<script type='text/javascript'>alert('$message');
          window.location.href = 'index.php';
         </script>";
         }
@@ -44,7 +44,7 @@ $password = $_POST['login-password'];
   }else{
          $message = "Wrong username or password";
          echo "<script type='text/javascript'>alert('$message');
-         window.location.href = 'index.php'; 
+         window.location.href = 'index.php';
         </script>";
         }
 

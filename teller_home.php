@@ -7,7 +7,6 @@ $today = (new DateTime("today", new DateTimeZone('Asia/Kuala_Lumpur')))->format(
 $sql_select_appointment = "SELECT * FROM appointment WHERE staffID = '$username' AND date = '$today' ORDER BY startTime ASC";
 if ($result_select_appointment = $conn->query($sql_select_appointment)) {
 	$row_count_select_appointment =mysqli_num_rows($result_select_appointment);
-  echo $row_count_select_appointment;
 	if ($row_count_select_appointment>0) {
 		$i = 1;
 		while($row_select_appointment=mysqli_fetch_assoc($result_select_appointment)) {

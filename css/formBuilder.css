@@ -6,6 +6,10 @@
 	margin-top: 40px;
 }
 
+.main-service {
+	padding: 0 30px;
+}
+
 hr {
 	margin-top: 0;
 	border: none;
@@ -18,13 +22,19 @@ textarea {
 	resize: none;
 }
 
-.add-btn 
+.add-btn
 {
-	text-align: center;
 	margin-bottom: 10px;
 }
 
-#fields-container 
+#fields-container > div:nth-child(odd)
 {
-	margin-bottom: 40px;
+	padding-top: 7px;
+	padding-left: 0;
+}
+#fields-container > div:nth-child(even)
+{
+	padding-top: 7px;
+	padding-right: 0;
+	padding-left: 0;
 }

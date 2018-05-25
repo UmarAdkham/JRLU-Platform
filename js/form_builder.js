@@ -8,7 +8,7 @@ function addFields(){
 	}*/
 	//for (i=0; i<number; i++){
 		var nameDiv = document.createElement("div");
-		nameDiv.className = "col-xs-12 col-sm-6";
+		nameDiv.className = "col-xs-8";
 		nameDiv.appendChild(document.createTextNode("Field Name"));
 		var input = document.createElement("input");
 		input.type = "text";
@@ -17,7 +17,7 @@ function addFields(){
 		nameDiv.appendChild(input);
 
 		var typeDiv = document.createElement("div");
-		typeDiv.className = "col-xs-12 col-sm-6";
+		typeDiv.className = "col-xs-4";
 		typeDiv.appendChild(document.createTextNode("Field Type"));
 		var select = document.createElement("select");
 		select.name = "field_type[]";
@@ -37,11 +37,6 @@ function addFields(){
 		container.appendChild(typeDiv);
 
 
-                //Append a line break
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("hr"));
-           //}
         }
 
 
@@ -96,8 +91,8 @@ function addFields(){
 
 
 
-function old_addField(counter){   
-	var previousContent = $("#form_to_edit").first().html();  
+function old_addField(counter){
+	var previousContent = $("#form_to_edit").first().html();
 	var newContent = "<div class='form_to_edit'>" +
 	"<div class='col-xs-6'>"+
 	"<label for='name' class='control-label'>Field Name:</label>"+

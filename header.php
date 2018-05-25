@@ -1,6 +1,8 @@
 
 <?php
-session_start();
+if(!isset($_SESSION)) { 
+		session_start();
+}
 include "DBconfig.php";
 
 $query = "SELECT bankName FROM bank WHERE bankID='".$_SESSION['bankID']."'";
@@ -24,7 +26,7 @@ $result2 = mysqli_query($conn, $query2);
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="color: white;"><?php $row = mysqli_fetch_array($result); 
+				<a class="navbar-brand" href="#" style="color: white;"><?php $row = mysqli_fetch_array($result);
 				echo strtoupper($row[0]) . " (" . $_SESSION['type'] . ")"; ?></a>
 
 			</div>
@@ -32,13 +34,13 @@ $result2 = mysqli_query($conn, $query2);
 			<div class="collapse navbar-collapse" id="cl-mainNavbar">
 				<?php  if ($_SESSION['type'] === 'Superadmin') {
 					echo '<ul class="nav navbar-nav">
-					<li><a href="home.php" id="upcoming-button">Service</a></li>
+					<li><a href="superAdmin.php" id="upcoming-button">Service</a></li>
 					<li><a href="branchPage.php" id="passed-button">Branch</a></li>
 					<li><a href="new_adminPage.php" id="current-button">Admin</a></li>
 					</ul>';
 				}
 				?>
-				
+
 				<p class="navbar-text navbar-right"><?php echo $_SESSION['fullname'];?></p>
 				<a href="logout.php" type="button" id="btn-logout" class="btn btn-default navbar-btn navbar-right">Log out</a>
 			</div>

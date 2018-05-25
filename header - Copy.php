@@ -24,12 +24,12 @@ $result = mysqli_query($conn, $query);
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><?php $row = mysqli_fetch_array($result); 
+				<a class="navbar-brand" href="#"><?php $row = mysqli_fetch_array($result);
 														echo strtoupper($row[0]) . " (" . $_SESSION['type'] . ")"; ?></a>
 				<a class="navbar-brand" href="branchPage.php">Branch</a>
 				<a class="navbar-brand" href="new_adminPage.php">Admin</a>
-				<a class="navbar-brand" style="color:white" href="home.php">Service</a>
-			
+				<a class="navbar-brand" style="color:white" href="superAdmin.php">Service</a>
+
 			</div>
 
 			<!-- Collect the nav links for toggling -->

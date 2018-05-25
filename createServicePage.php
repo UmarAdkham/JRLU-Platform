@@ -6,6 +6,9 @@ include("DBconfig.php");
 $sql_fields = "SELECT * FROM data_type";
 $result_fields = $conn->query($sql_fields);
 $length = 0;
+
+$sql_hardcopy = "SELECT * FROM hardcopy";
+$result_hardcopy = $conn->query($sql_hardcopy);
 ?>
 
 
@@ -24,11 +27,11 @@ $length = 0;
 	<!-- Google font: Oswald -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
-	<!-- Built CSS File -->
-	<link href="css/formBuilder.css" type="text/css" rel="stylesheet">
-
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Built CSS File -->
+	<link href="css/formBuilder.css" type="text/css" rel="stylesheet">
 
 	<!-- Animate.css CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
@@ -46,11 +49,12 @@ $length = 0;
 <body>
 
 	<div class="container">
+		<h1 style="margin-top:100px; text-align:center;">Create New Service</h1>
 		<form role="form" class="form-horizontal" action="createService.php" method="POST">
 
 			<!-- Building Service -->
-			<div class="row service-builder">
-				<div class="col-xs-12 col-sm-8">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8 main-service">
 					<div class="form-group">
 						<label for="name" class="control-label">Service Name:</label>
 						<input type="text" name="service_name" class="form-control">
@@ -63,47 +67,63 @@ $length = 0;
 			</div>
 			<!-- End of Building Service Row -->
 
-
-
-			<!--Building Fields -->
-			<div class="row form-builder">
-				<div class="col-xs-12">
-					<label class="control-label" style="font-size: 30px; margin: 0"> Build Fields for the Service</label>
-					<hr>
-				</div>
-
-
 				<!-- Checkboxes for the frequently used data fields -->
-				
-					<div class="col-xs-12 col-sm-12 checkboxes">
+
+					<div class="col-md-offset-2 col-md-4 checkboxes">
+
+						<h3>Service Fields</h3>
+
 						<!-- PHP for loop to display all data types from database -->
 						<?php while ($row = $result_fields->fetch_assoc()){
 						echo
-						'<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox'.++$length.'" name="common_fields[]" value="'.$row['dataTypeID'].'">'.$row['fieldName'].'
-						</label>';
+						'<div class="checkbox">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox'.++$length.'" name="common_fields[]" value="'.$row['dataTypeID'].'">'.$row['fieldName'].'
+							</label>
+							<label class="checkbox-inline pull-right">
+								<input type="checkbox" name="required" value="">Required
+							</label>
+						</div>
+						';
 						}
 						?>
 						<!-- End of loop -->
-					</div>
 
-				<!-- End of Checkboxes for the frequently used data fields -->
-					<div class="col-xs-12 col-sm-12">
-						
-						<!-- Container to dynamically increase and hold all fields --> 
-						<div class="col-xs-12" id="fields-container"> </div>
+
+						<!-- Container to dynamically increase and hold all fields -->
+						<div id="fields-container"> </div>
 						<!--End of Container to dynamically increase and hold all fields -->
 
-						<!-- Button for adding fields -->	
-						<div class="add-btn" style="text-align: center;">
+						<!-- Button for adding fields -->
+						<div class="add-btn">
 							<input type="button" value=" + " class="btn btn-default" id="add_field" onclick="addFields();" style="margin-top: 10px; background-color: green; color: white;">
 						</div>
 						<!-- End of Button for adding fields -->
 
 					</div>
+					<!-- End of Checkboxes for the frequently used data fields -->
+
+					<div class="col-md-offset-1 col-md-3 checkboxes">
+
+						<h3>Service Hardcopies</h3>
+
+						<!-- PHP for loop to display all data types from database -->
+						<?php while ($row = $result_hardcopy->fetch_assoc()){
+						echo
+						'<div class="checkbox">
+							<label class="checkbox">
+								<input type="checkbox" name="hardcopies[]" value="'.$row['hardcopyID'].'">'.$row['documentName'].'
+							</label>
+						</div>
+						';
+						}
+						?>
+						<!-- End of loop -->
+
+					</div>
 
 					<!-- Submit and Reset buttons for entire form -->
-					<div class="col-xs-12" style="margin-bottom: 40px;">
+					<div class="col-md-offset-2 col-md-8" style="padding: 40px 15px;">
 						<button type="reset" class="btn btn-reset btn-default">Clear All</button>
 						<button type="submit" class="btn btn-submit btn-success pull-right">Add Service</button>
 					</div>
