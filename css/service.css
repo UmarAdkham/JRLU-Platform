@@ -1,3 +1,6 @@
 form{
 	display: inline;
 }
+.table>tbody>tr>td {
+	vertical-align: middle;
+}

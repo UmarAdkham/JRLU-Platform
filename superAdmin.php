@@ -38,9 +38,6 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 	<!-- Google font: Oswald -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
-	<!-- Built CSS File -->
-	<link href="css/service.css" type="text/css" rel="stylesheet">
-
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -49,6 +46,9 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 
 	<!-- FontAwesome CSS -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!-- Built CSS File -->
+	<link href="css/service.css" type="text/css" rel="stylesheet">
 
 	<!-- My own Script -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

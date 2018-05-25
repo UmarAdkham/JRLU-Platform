@@ -8,8 +8,11 @@ $name = $_POST['service_name'];
 $desc = $_POST['description'];
 $branchID = $_SESSION['branchID'];
 $common_fields = $_POST['common_fields'];
+$requireds = $_POST['requireds'];
 $fieldName = $_POST['field_name'];
 $fieldType = $_POST['field_type'];
+$hardcopies = $_POST['hardcopies'];
+
 
 //Get bankID from branchID
 $sql_bank = "SELECT bank.bankID from bank, branch WHERE bank.bankID = branch.bankID and branchID='$branchID'";
@@ -31,10 +34,30 @@ if ($conn->query($sql) === TRUE)
 
 //Inserting values into data_type table from checkboxes
 	$numOfCheckBoxes = count($common_fields);
+  $numOfRequireds = count($requireds);
 	for ($i=0; $i < $numOfCheckBoxes; $i++) {
-		${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '$common_fields[$i]')";
+    $isRequired = false;
+    for ($j=0; $j < $numOfRequireds; $j++) {
+      if ($common_fields[$i] == $requireds[$j]) {
+        $isRequired = true;
+        break;
+      }
+    }
+    if ($isRequired) {
+      ${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '$common_fields[$i]', '1')";
+    } else {
+      ${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '$common_fields[$i]', '0')";
+    }
 		$conn -> query(${"sqlBridge$i"});
 	}
+
+  //Inserting values into data_type table from checkboxes
+    $numOfHardcopies = count($hardcopies);
+  	for ($i=0; $i < $numOfCheckBoxes; $i++) {
+        ${"sqlBridgeHardcopy$i"} = "INSERT INTO service_hardcopy VALUES ('$last_service_id', '$hardcopies[$i]')";
+        $conn -> query(${"sqlBridgeHardcopy$i"});
+    }
+
 
 //Inserting values into data_type table from POSTed array
 	$numOfFields = count($fieldName);
@@ -46,7 +69,7 @@ if ($conn->query($sql) === TRUE)
 			${"last_datatype_id$i"} = $conn->insert_id;
 		}
 		//Inserting into bridge table service_data_type
-		${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '${"last_datatype_id$i"}')";
+		${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '${"last_datatype_id$i"}', 0)";
 		$conn -> query(${"sqlBridge$i"});
 		}
 	}
