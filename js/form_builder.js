@@ -8,7 +8,7 @@ function addFields(){
 	}*/
 	//for (i=0; i<number; i++){
 		var nameDiv = document.createElement("div");
-		nameDiv.className = "col-xs-8";
+		nameDiv.className = "col-xs-5";
 		nameDiv.appendChild(document.createTextNode("Field Name"));
 		var input = document.createElement("input");
 		input.type = "text";
@@ -24,6 +24,14 @@ function addFields(){
 		select.className = "form-control";
 		typeDiv.appendChild(select);
 
+		var requiredDiv = document.createElement("div");
+		requiredDiv.className = "col-xs-3";
+		requiredDiv.innerHTML = '<label class="checkbox-inline pull-right" style="padding-top: 27px;"><input type="checkbox" name="required" value="">Required</label>';
+
+		var clearfixDiv = document.createElement("div");
+		clearfixDiv.className = "clearfix";
+
+
 		for (var t = 0; t < arrayType.length; t++) {
 			var option = document.createElement("option");
 			option.setAttribute("value", arrayType[t]);
@@ -35,6 +43,8 @@ function addFields(){
 
 		container.appendChild(nameDiv);
 		container.appendChild(typeDiv);
+		container.appendChild(requiredDiv);
+		container.appendChild(clearfixDiv);
 
 
         }

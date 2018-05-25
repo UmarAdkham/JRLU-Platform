@@ -62,7 +62,7 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 	<div class="container" style="margin-top: 50px;">
 		<div class="row">
 			<div class="col-sm-offset-1 col-sm-10">
-				<h2 class="text-center" style="margin-bottom: 50px;">Current Services</h2>
+				<h1 class="text-center" style="margin-top: 50px;">Current Services</h1>
 				<?php if ($row_count_select_service == 0) {
 					echo "<p>No services have been created yet</p>";
 				} else {
