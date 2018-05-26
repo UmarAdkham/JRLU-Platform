@@ -177,6 +177,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 					<!-- Submit and Reset buttons for entire form -->
 					<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10" style="padding: 40px 15px;">
 						<button type="reset" class="btn btn-reset btn-default">Clear All</button>
+						<input class='hidden' name='serviceID' value='<?php echo $serviceID; ?>'>
 						<button type="submit" class="btn btn-submit btn-success pull-right">Update Service</button>
 					</div>
 			</div>
