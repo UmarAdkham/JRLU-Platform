@@ -84,13 +84,13 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 										<td>$serviceName_selected_service[$i]</td>
 										<td>$description_selected_service[$i]</td>
 										<td>
-												<form action='updateService.php' method='post'>
+												<form action='updateServicePage.php' method='post'>
 														<input class='hidden' name='serviceID' value='$serviceID_selected_service[$i]'>
 														<button type='submit' class='btn btn-success' style='margin-right:20px;'><i class='fas fa-edit'></i></button>
 												</form>
-												<form id='deleteServiceForm' action='deleteService.php' method='post'>
+												<form id='deleteServiceForm$serviceID_selected_service[$i]' action='deleteService.php' method='post'>
 														<input class='hidden' name='serviceID' value='$serviceID_selected_service[$i]'>
-														<button type='button' onclick='deleteConfirmation()' class='btn btn-danger'><i class='fas fa-trash-alt'></i></button>
+														<button type='button' onclick='deleteConfirmation($serviceID_selected_service[$i])' class='btn btn-danger'><i class='fas fa-trash-alt'></i></button>
 												</form>
 										</td>
 									</tr>
@@ -119,9 +119,9 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 
 	<!-- Custom JS -->
 	<script>
-		function deleteConfirmation() {
+		function deleteConfirmation(serviceID) {
 				if (confirm("Are you sure that you want to delete this service?")) {
-					document.getElementById("deleteServiceForm").submit();
+					document.getElementById("deleteServiceForm"+serviceID).submit();
 				}
 		}
 	</script>
