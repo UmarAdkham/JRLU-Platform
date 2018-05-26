@@ -33,8 +33,11 @@ if ($conn->query($sql) === TRUE)
 	$last_service_id = $conn->insert_id;
 
 //Inserting values into data_type table from checkboxes
-$numOfCheckBoxes = count($common_fields);
-
+	$numOfCheckBoxes = count($common_fields);
+<<<<<<< HEAD
+	for ($i=0; $i < $numOfCheckBoxes; $i++) { 
+		${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '$common_fields[$i]')";
+=======
   $numOfRequireds = count($requireds);
 	for ($i=0; $i < $numOfCheckBoxes; $i++) {
     $isRequired = false;
@@ -49,6 +52,7 @@ $numOfCheckBoxes = count($common_fields);
     } else {
       ${"sqlBridge$i"} = "INSERT INTO service_data_type VALUES ('$last_service_id', '$common_fields[$i]', '0')";
     }
+>>>>>>> d1be82bc35d63d43b3ca13c3fd4426adac60e39d
 		$conn -> query(${"sqlBridge$i"});
 	}
 

@@ -26,15 +26,11 @@ textarea {
 {
 	margin-bottom: 10px;
 }
-
-#fields-container > div:nth-child(odd)
-{
+#fields-container {
 	padding-top: 7px;
-	padding-left: 0;
 }
-#fields-container > div:nth-child(even)
-{
-	padding-top: 7px;
-	padding-right: 0;
+
+#fields-container > div:nth-child(odd) {
 	padding-left: 0;
+	padding-right: 0;
 }

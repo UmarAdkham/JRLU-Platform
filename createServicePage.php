@@ -54,7 +54,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 			<!-- Building Service -->
 			<div class="row">
-				<div class="col-md-offset-2 col-md-8 main-service">
+				<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 main-service">
 					<div class="form-group">
 						<label for="name" class="control-label">Service Name:</label>
 						<input type="text" name="service_name" class="form-control">
@@ -69,7 +69,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 				<!-- Checkboxes for the frequently used data fields -->
 
-					<div class="col-md-offset-2 col-md-4 checkboxes">
+					<div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-6 checkboxes">
 
 						<h3>Service Fields</h3>
 
@@ -81,7 +81,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 								<input type="checkbox" id="inlineCheckbox'.++$length.'" name="common_fields[]" value="'.$row['dataTypeID'].'">'.$row['fieldName'].'
 							</label>
 							<label class="checkbox-inline pull-right">
-								<input type="checkbox" name="required" value="">Required
+								<input type="checkbox" name="requireds[]" value="'.$row['dataTypeID'].'">Required
 							</label>
 						</div>
 						';
@@ -123,7 +123,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 					</div>
 
 					<!-- Submit and Reset buttons for entire form -->
-					<div class="col-md-offset-2 col-md-8" style="padding: 40px 15px;">
+					<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10" style="padding: 40px 15px;">
 						<button type="reset" class="btn btn-reset btn-default">Clear All</button>
 						<button type="submit" class="btn btn-submit btn-success pull-right">Add Service</button>
 					</div>
