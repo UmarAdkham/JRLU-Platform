@@ -4,14 +4,16 @@ session_start();
 include "DBconfig.php";
 $username = $_SESSION['username'];
 $today = (new DateTime("today", new DateTimeZone('Asia/Kuala_Lumpur')))->format('Y-m-d');
-$sql_select_appointment = "SELECT * FROM appointment WHERE staffID = '$username' AND date = '$today' ORDER BY startTime ASC";
+echo $today;
+$sql_select_appointment = "SELECT time_interval FROM time_intervals, appointment WHERE time_intervals.interval_id = appointment.interval_id AND staffID = '$username' AND appointment_date = '$today' ORDER BY time_intervals.interval_id ASC";
 if ($result_select_appointment = $conn->query($sql_select_appointment)) {
 	$row_count_select_appointment =mysqli_num_rows($result_select_appointment);
 	if ($row_count_select_appointment>0) {
 		$i = 1;
 		while($row_select_appointment=mysqli_fetch_assoc($result_select_appointment)) {
-			$startTime_selected_appointment[$i] = $row_select_appointment['startTime'];
-			$endTime_selected_appointment[$i] = $row_select_appointment['endTime'];
+			$time = $row_select_appointment['time_interval'];
+      $startTime[$i] = explode("-", $time)[0];
+      $endTime[$i] = explode("-", $time)[1];
 			$i++;
 		}
 	}
@@ -49,12 +51,12 @@ if ($result_select_appointment = $conn->query($sql_select_appointment)) {
 <div id="tellerHome" class="container">
   <div class="row">
     <div class="col-sm-6">
-      <h2 class="text-center" style="margin-bottom: 50px;">Today's Appointment</h2>
+      <h2 class="text-center" style="margin-bottom: 50px;">Hi, <?php echo $_SESSION['fullname'] ?>! Your appointments for today</h2>
       <?php if ($row_count_select_appointment == 0) {
         echo "<p>There is no appointments for today</p>";
       } else {
         echo "
-        <table class='table table-striped'>
+        <table class='table table-bordered table-hover'>
           <thead>
             <tr>
               <th>#</th>
@@ -67,8 +69,8 @@ if ($result_select_appointment = $conn->query($sql_select_appointment)) {
               echo "
                 <tr>
                   <td>$i</td>
-                  <td>$startTime_selected_appointment[$i]</td>
-                  <td>$endTime_selected_appointment[$i]</td>
+                  <td>$startTime[$i]</td>
+                  <td>$endTime[$i]</td>
                 </tr>
               ";
             } echo "
