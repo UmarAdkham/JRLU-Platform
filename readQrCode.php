@@ -5,7 +5,15 @@ include("DBconfig.php");
 
 $qrCode = $_POST['qrCode'];
 
-echo $qrCode;
+$appintmentID = explode("<>",$qrCode)[0];
+
+$sql = "SELECT * FROM filleddata where appointmentID = '$appintmentID'";
+$result = $conn->query($sql);
+while($row =mysqli_fetch_assoc($result)) {
+  echo "fieldName: ".$row['fieldName'];
+  echo "<br>data: ".$row['data'];
+  echo "<hr>";
+}
 
 $conn->close();
 
