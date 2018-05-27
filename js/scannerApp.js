@@ -10,6 +10,8 @@ var scannerApp = new Vue({
     var self = this;
     self.scanner = new Instascan.Scanner({ video: document.getElementById('scanner'), scanPeriod: 5 });
     self.scanner.addListener('scan', function (content, image) {
+      document.getElementById('qrReaderInput').value = content;
+      document.getElementById('qrReader').submit();
       self.scans.unshift({ date: +(Date.now()), content: content });
     });
     Instascan.Camera.getCameras().then(function (cameras) {

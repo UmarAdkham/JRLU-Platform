@@ -58,6 +58,9 @@ session_start();
     <div class="preview-container">
       <video id="scanner"></video>
     </div>
+    <form id="qrReader" class="hidden" action="readQrCode.php" method="post">
+      <input id="qrReaderInput" type="text" class="hidden" name="qrCode" value="">
+    </form>
   </div>
 
 
