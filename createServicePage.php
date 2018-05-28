@@ -71,7 +71,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 					<div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-6 checkboxes">
 
-						<h3>Service Fields</h3>
+						<h3>Information Required</h3>
 
 						<!-- PHP for loop to display all data types from database -->
 						<?php while ($row = $result_fields->fetch_assoc()){
@@ -105,7 +105,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 					<div class="col-md-offset-1 col-md-3 checkboxes">
 
-						<h3>Service Hardcopies</h3>
+						<h3>Hard Copy Documents Required</h3>
 
 						<!-- PHP for loop to display all data types from database -->
 						<?php while ($row = $result_hardcopy->fetch_assoc()){
