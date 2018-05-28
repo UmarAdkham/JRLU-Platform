@@ -60,6 +60,8 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 <body>
 
 	<div class="container" style="margin-top: 50px;">
+		
+		</div>
 		<div class="row">
 			<div class="col-sm-offset-1 col-sm-10">
 				<h1 class="text-center" style="margin-top: 50px;">Current Services</h1>
@@ -73,7 +75,7 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 								<th>#</th>
 								<th>Service</th>
 								<th>Description</th>
-								<th>Update</th>
+								<th>Update/Delete</th>
 							</tr>
 						</thead>
 						<tbody>";
