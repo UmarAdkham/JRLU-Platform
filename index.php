@@ -27,7 +27,8 @@ error_reporting(0);
 
 <body>
 
-<div class="container" id="login-section">
+<div class="container">
+  <div style="margin-top: 10px;"><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
   <div class="row">
 
     <div class="col-sm-4 col-sm-offset-4 form-section">
@@ -37,7 +38,7 @@ error_reporting(0);
         <div id="jobSeeker" class="tab-pane fade in active">
           <form data-toggle="validator" class="form-horizontal" id="jobSeeker-form" action="login.php" method="POST">
             <fieldset>
-             
+
               <div class="form-group has-feedback">
                 <label class="control-label" for="username">Username</label>
                 <div class="controls">
@@ -54,16 +55,16 @@ error_reporting(0);
                 </div>
               </div>
 
-           
+
               <div class="controls">
                 <button type="submit" name = "submit" class="btn btn-submit btn-success btn-block">Login</button>
               </div>
-              
+
             </fieldset>
           </form>
 
         </div>
-        
+
       </div>
     </div>
   </div>

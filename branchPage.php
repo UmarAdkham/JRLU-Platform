@@ -29,6 +29,8 @@ error_reporting(0);
 <body>
 
   <div class="container" id="login-section">
+    <div><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
+
     <div class="row">
 
       <div class="col-sm-4 col-sm-offset-4 form-section">
@@ -51,7 +53,7 @@ error_reporting(0);
                   <label class="control-label" for="address">Address</label>
                   <div class="controls">
                     <textarea class="form-control" id="address" name="address" rows="3" maxlength="500" style="resize: none;" required></textarea>
-                    <p class="help-block with-errors"></p>  
+                    <p class="help-block with-errors"></p>
                   </div>
                 </div>
 

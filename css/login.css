@@ -66,7 +66,7 @@
 
 /* Start Login Style */
 #login-section{
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .social-section, .form-section{
@@ -135,9 +135,7 @@
     margin-bottom: 0;
 }
 .btn-reset, .btn-submit
-{  
+{
   margin-top: 15px;
   margin-bottom: 10px;
 }
-
-

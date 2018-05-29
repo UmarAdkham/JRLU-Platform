@@ -60,11 +60,10 @@ if ($result_select_service = $conn->query($sql_select_service)) {
 <body>
 
 	<div class="container" style="margin-top: 50px;">
-		
-		</div>
+		<div><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
 		<div class="row">
-			<div class="col-sm-offset-1 col-sm-10">
-				<h1 class="text-center" style="margin-top: 50px;">Current Services</h1>
+			<div class="">
+				<h1 class="text-center" style="margin-top: 10px;">Current Services</h1>
 				<?php if ($row_count_select_service == 0) {
 					echo "<p>No services have been created yet</p>";
 				} else {

@@ -29,6 +29,7 @@ session_start();
 <body>
 
 <div class="container" id="login-section">
+  <div><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
   <div class="row">
 
     <div class="col-sm-4 col-sm-offset-4 form-section">
@@ -38,7 +39,7 @@ session_start();
         <div id="jobSeeker" class="tab-pane fade in active">
           <form data-toggle="validator" class="form-horizontal" id="jobSeeker-form" action="new_admin.php" method="POST">
             <fieldset>
-             
+
               <div class="form-group has-feedback">
                 <label class="control-label" for="fullname">Full Name</label>
                 <div class="controls">
@@ -83,16 +84,16 @@ session_start();
                 </div>
               </div>
 
-           
+
               <div class="controls">
                 <button type="submit" name = "submit" class="btn btn-submit btn-success btn-block">Add</button>
               </div>
-              
+
             </fieldset>
           </form>
 
         </div>
-        
+
       </div>
     </div>
   </div>

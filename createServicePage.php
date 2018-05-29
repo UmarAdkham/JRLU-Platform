@@ -49,7 +49,8 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 <body>
 
 	<div class="container">
-		<h1 style="margin-top:100px; text-align:center;">Create New Service</h1>
+		<div style="margin-top:  60px;"><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
+		<h1 style="margin-top:40px; text-align:center;">Create New Service</h1>
 		<form role="form" class="form-horizontal" action="createService.php" method="POST">
 
 			<!-- Building Service -->

@@ -49,9 +49,11 @@ if ($result_select_appointment = $conn->query($sql_select_appointment)) {
 <?php include "header.php"; ?>
 <body>
 <div id="tellerHome" class="container">
+	<div><img src="zeroQ_logo.png" alt="logo" width="150" style="margin-left: -12px;"></div>
+	
   <div class="row">
     <div class="col-sm-6">
-      <h2 class="text-center" style="margin-bottom: 50px;">Hi, <?php echo $_SESSION['fullname'] ?>! Your appointments for today</h2>
+      <h2 style="margin-bottom: 50px;">Hi, <?php echo $_SESSION['fullname'] ?>! Your appointments for today</h2>
       <?php if ($row_count_select_appointment == 0) {
         echo "<p>There is no appointments for today</p>";
       } else {
