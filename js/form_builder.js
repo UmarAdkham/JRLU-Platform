@@ -41,7 +41,7 @@ function addFields(){
 
 		container.appendChild(nameDiv);
 		container.appendChild(typeDiv);
-		//container.appendChild(requiredDiv);
-		//container.appendChild(clearfixDiv);
+		container.appendChild(requiredDiv);
+		container.appendChild(clearfixDiv);
 	}
 
