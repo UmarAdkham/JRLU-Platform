@@ -11,7 +11,7 @@ $desc = $_POST['description'];
 $branchID = $_SESSION['branchID'];
 $common_fields = $_POST['common_fields'];
 $common_hardcopies = $_POST['common_hardcopies'];
-$requireds = $_POST['requireds'];
+//$requireds = $_POST['requireds'];
 $fieldName = $_POST['field_name'];
 $fieldType = $_POST['field_type'];
 $hardcopies = $_POST['hardcopies'];
@@ -99,9 +99,8 @@ if ($conn->query($sql) === TRUE) {
 
   $message = "Update Successfully";
   echo "<script type='text/javascript'>alert('$message');
-  window.location.href = 'superAdmin.php';
+   window.location.href = 'superAdmin.php';
   </script>";
-
 
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;

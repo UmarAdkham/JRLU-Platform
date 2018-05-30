@@ -9,6 +9,7 @@ function addFields(){
 	//for (i=0; i<number; i++){
 		var nameDiv = document.createElement("div");
 		nameDiv.className = "col-xs-5";
+		nameDiv.style.padding = "0 0 10px 0";
 		nameDiv.appendChild(document.createTextNode("Field Name"));
 		var input = document.createElement("input");
 		input.type = "text";
@@ -18,6 +19,7 @@ function addFields(){
 
 		var typeDiv = document.createElement("div");
 		typeDiv.className = "col-xs-4";
+		nameDiv.style.padding = "0 10px 10px 10px";
 		typeDiv.appendChild(document.createTextNode("Field Type"));
 		var select = document.createElement("select");
 		select.name = "field_type[]";
@@ -41,11 +43,8 @@ function addFields(){
 
 		container.appendChild(nameDiv);
 		container.appendChild(typeDiv);
-		container.appendChild(requiredDiv);
+		//container.appendChild(requiredDiv);
 		container.appendChild(clearfixDiv);
-
-
-
         }
 
 

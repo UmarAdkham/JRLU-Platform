@@ -125,7 +125,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 						<div id="hardcopies-container"> </div>
 
-						<div class="add-btn">
+						<div class="add-btn" style="margin-top: 10px;">
 							<input type="button" value="+" class="btn btn-success" id="add_field" onclick="addHardcopy();">
 						</div>
 
