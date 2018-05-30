@@ -1,7 +1,7 @@
 function addFields(){
 	//var number = document.getElementById("noFields").value;
 	var container = document.getElementById("fields-container");
-	var arrayType = ["EditText", "DatePicker", "RadioButton", "CheckBox"];
+	var arrayType = ["EditText"];
 
 	/*while (container.hasChildNodes()) {
 		container.removeChild(container.lastChild);
@@ -24,10 +24,10 @@ function addFields(){
 		select.className = "form-control";
 		typeDiv.appendChild(select);
 
-		var requiredDiv = document.createElement("div");
+		/*var requiredDiv = document.createElement("div");
 		requiredDiv.className = "col-xs-3";
 		requiredDiv.innerHTML = '<label class="checkbox-inline pull-right" style="padding-top: 27px;"><input type="checkbox" name="required" value="">Required</label>';
-
+*/
 		var clearfixDiv = document.createElement("div");
 		clearfixDiv.className = "clearfix";
 
@@ -38,8 +38,6 @@ function addFields(){
 			option.text = arrayType[t];
 			select.appendChild(option);
 		}
-
-
 
 		container.appendChild(nameDiv);
 		container.appendChild(typeDiv);
@@ -67,6 +65,5 @@ function addHardcopy(){
 	hardcopyName.appendChild(input);
 
 	container.appendChild(hardcopyName);
-
 
 }
