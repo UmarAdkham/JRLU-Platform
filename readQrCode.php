@@ -57,25 +57,29 @@ while($row =mysqli_fetch_assoc($result)) {
 				<?php if ($row_cnt == 0) {
 					echo "<p>No data has been submitted</p>";
 				} else {
+					$outp = '[';
 					echo "
 					<table class='table table-bordered table-hover'>
 					<thead>
 					<tr>
-					<th>#</th>
+					
 					<th>Field name</th>
 					<th>Value</th>
 					</tr>
 					</thead>
 					<tbody>";
 					for ($i = 1; $i <=$row_cnt; $i++) {
+						$outp .= '{"fieldName":"'.$fieldName[$i].'",';
+						$outp .= '"value":"'.$dec[$i].'"}';
 						echo "
 						<tr>
-						<td>$i</td>
 						<td>$fieldName[$i]</td>
 						<td>$dec[$i]</td>
 						</tr>
 						";
-						} echo "
+						} 
+						$outp .= ']}';
+						echo "
 						</tbody>
 						</table>
 						";
@@ -83,24 +87,34 @@ while($row =mysqli_fetch_assoc($result)) {
 					?>
 
 				</div>
+				<form role="form" class="form-horizontal" action="generateJson.php" method="POST">
+					<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10" style="padding: 40px 15px;">
+						<?php $new = htmlspecialchars($outp, ENT_QUOTES);?>
+						<input id="json" name="outp" type="hidden" value="<?php echo $new; ?>">
+						<input id="appointmentID" name="appointmentID" type="hidden" value="<?php echo $appointmentID; ?>">
+
+						<button type="reset" class="btn btn-reset btn-default">Reject application</button>
+
+						<button type="submit" class="btn btn-submit btn-success pull-right">Confirm application</button>
+					</div>
+				</form>
 			</div>
-		</div>
 
 
-		<!-- jQuery -->
-		<script src="js/jquery-2.2.3.min.js"></script>
+			<!-- jQuery -->
+			<script src="js/jquery-2.2.3.min.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
+			<!-- Bootstrap Core JavaScript -->
+			<script src="js/bootstrap.min.js"></script>
 
-		<!--Validator -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+			<!--Validator -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
 
-	</body>
+		</body>
 
-	</html>
+		</html>
 
-	<?php
-	$conn->close();
-	?>
+		<?php
+		$conn->close();
+		?>

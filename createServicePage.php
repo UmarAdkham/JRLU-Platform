@@ -81,9 +81,11 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 							<label class="checkbox-inline">
 								<input type="checkbox" id="inlineCheckbox'.++$length.'" name="common_fields[]" value="'.$row['dataTypeID'].'">'.$row['fieldName'].'
 							</label>
+							<!--
 							<label class="checkbox-inline pull-right">
 								<input type="checkbox" name="requireds[]" value="'.$row['dataTypeID'].'">Required
 							</label>
+							-->
 						</div>
 						';
 						}

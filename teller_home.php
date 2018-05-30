@@ -5,7 +5,7 @@ include "DBconfig.php";
 $username = $_SESSION['username'];
 $today = (new DateTime("today", new DateTimeZone('Asia/Kuala_Lumpur')))->format('Y-m-d');
 echo $today;
-$sql_select_appointment = "SELECT time_interval FROM time_intervals, appointment WHERE time_intervals.interval_id = appointment.interval_id AND staffID = '$username' AND appointment_date = '$today' ORDER BY time_intervals.interval_id ASC";
+$sql_select_appointment = "SELECT time_interval FROM time_intervals, appointment WHERE time_intervals.interval_id = appointment.interval_id AND staffID = '$username' AND appointment_date = '$today' and status = 0 ORDER BY time_intervals.interval_id ASC";
 if ($result_select_appointment = $conn->query($sql_select_appointment)) {
 	$row_count_select_appointment =mysqli_num_rows($result_select_appointment);
 	if ($row_count_select_appointment>0) {
