@@ -22,9 +22,8 @@ textarea {
 	resize: none;
 }
 
-.add-btn
-{
-	margin-bottom: 10px;
+.add-btn {
+  margin: 10px 0;
 }
 #fields-container {
 	padding-top: 7px;

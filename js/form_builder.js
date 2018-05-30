@@ -43,5 +43,28 @@ function addFields(){
 		container.appendChild(typeDiv);
 		container.appendChild(requiredDiv);
 		container.appendChild(clearfixDiv);
-	}
 
+
+
+        }
+
+
+
+
+
+function addHardcopy(){
+	var container = document.getElementById("hardcopies-container");
+
+	var hardcopyName = document.createElement("div");
+	hardcopyName.className = "col-xs-12";
+	hardcopyName.style = "padding: 7px 0";
+	hardcopyName.appendChild(document.createTextNode("Document Name"));
+	var input = document.createElement("input");
+	input.type = "text";
+	input.name = "hardcopies[]";
+	input.className += "form-control";
+	hardcopyName.appendChild(input);
+
+	container.appendChild(hardcopyName);
+
+}
