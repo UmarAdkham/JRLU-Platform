@@ -10,7 +10,9 @@
 			echo "<script type='text/javascript'>alert('$message');
 			window.location.href = 'superAdmin.php';</script>";
 		} else {
-			echo "Error: " . $sql . "<br>" . $conn->error;
+			$message = "Not possible to delete the service, as it was applied for by a customer";
+			echo "<script type='text/javascript'>alert('$message');
+			window.location.href = 'superAdmin.php';</script>";
 		}
 
 
