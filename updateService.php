@@ -10,6 +10,7 @@ $name = $_POST['service_name'];
 $desc = $_POST['description'];
 $branchID = $_SESSION['branchID'];
 $common_fields = $_POST['common_fields'];
+$common_hardcopies = $_POST['common_hardcopies'];
 $requireds = $_POST['requireds'];
 $fieldName = $_POST['field_name'];
 $fieldType = $_POST['field_type'];
@@ -58,9 +59,9 @@ if ($conn->query($sql) === TRUE) {
   }
 
   //Inserting values into data_type table from checkboxes
-  $numOfHardcopies = count($hardcopies);
+  $numOfHardcopies = count($common_hardcopies);
   for ($i=0; $i < $numOfHardcopies; $i++) {
-    ${"sqlBridgeHardcopy$i"} = "INSERT INTO service_hardcopy VALUES ('$serviceID', '$hardcopies[$i]')";
+    ${"sqlBridgeHardcopy$i"} = "INSERT INTO service_hardcopy VALUES ('$serviceID', '$common_hardcopies[$i]')";
     $conn -> query(${"sqlBridgeHardcopy$i"});
   }
 
@@ -79,6 +80,21 @@ if ($conn->query($sql) === TRUE) {
       $conn -> query(${"sqlBridge$i"});
     }
   }
+
+  //Inserting values into hardcopy table (additional)
+    $numOfHardcopyCheckboxes = count($hardcopies);
+    for ($i=0; $i < $numOfHardcopyCheckboxes; $i++) {
+      if ($hardcopies[$i] != NULL) {
+        ${"sql$i"} = "INSERT INTO `hardcopy`(`documentName`) VALUES ('$hardcopies[$i]')";
+        if ($conn->query(${"sql$i"}) === TRUE)
+      {
+        ${"last_hardcopy_id$i"} = $conn->insert_id;
+      }
+      //Inserting into bridge table service_data_type
+      ${"sqlBridge$i"} = "INSERT INTO service_hardcopy VALUES ('$serviceID', '${"last_hardcopy_id$i"}')";
+      $conn -> query(${"sqlBridge$i"});
+      }
+    }
 
 
   $message = "Update Successfully";

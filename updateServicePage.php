@@ -141,7 +141,7 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 
 						<!-- Button for adding fields -->
 						<div class="add-btn">
-							<input type="button" value=" + " class="btn btn-default" id="add_field" onclick="addFields();" style="margin-top: 10px; background-color: green; color: white;">
+							<input type="button" value="+" class="btn btn-success" id="add_field" onclick="addFields();">
 						</div>
 						<!-- End of Button for adding fields -->
 
@@ -165,13 +165,19 @@ $result_hardcopy = $conn->query($sql_hardcopy);
 						echo
 						'<div class="checkbox">
 							<label class="checkbox">
-								<input type="checkbox" name="hardcopies[]"'; if ($isHardcopyChecked) {echo "checked";} echo' value="'.$row['hardcopyID'].'">'.$row['documentName'].'
+								<input type="checkbox" name="common_hardcopies[]"'; if ($isHardcopyChecked) {echo "checked";} echo' value="'.$row['hardcopyID'].'">'.$row['documentName'].'
 							</label>
 						</div>
 						';
 						}
 						?>
 						<!-- End of loop -->
+
+						<div id="hardcopies-container"> </div>
+
+						<div class="add-btn">
+							<input type="button" value="+" class="btn btn-success" id="add_field" onclick="addHardcopy();">
+						</div>
 
 					</div>
 
